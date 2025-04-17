@@ -1,6 +1,6 @@
 
 
-function BoardElement({item,clicked}){
+function BoardElement({item,clicked,isGameOver}){
     let color
 
     switch(item.text){
@@ -15,7 +15,7 @@ function BoardElement({item,clicked}){
             break;
     }
     return(
-        <div className={item.text==''?"boardElementU":"boardElementM"} style={{backgroundColor:color}} onClick={()=>{clicked(item)}}>
+        <div className={isGameOver?'boardElementM' : (item.text==''?"boardElementU":"boardElementM")} style={{backgroundColor:color}} onClick={()=>{clicked(item)}}>
             <p>{item.text}</p>
         </div>
     )

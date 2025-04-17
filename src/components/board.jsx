@@ -1,11 +1,12 @@
 import { useState } from "react"
 import BoardElement from "./boardElement"
 
-function Board({togglePlayer,num,gameOver,isGameOver}){
+function Board({togglePlayer,num,gameOver,isGameOver,restart,toggleRestart}){
     const [items,setItems]=useState([{id:'00',text:''},{id:'01',text:''},{id:'02',text:''},{id:'10',text:''},{id:'11',text:''},{id:'12',text:''},{id:'20',text:''},{id:'21',text:''},{id:'22',text:''}])
 
-    if(isGameOver){
-        
+    if(restart&&isGameOver){
+        setItems([{id:'00',text:''},{id:'01',text:''},{id:'02',text:''},{id:'10',text:''},{id:'11',text:''},{id:'12',text:''},{id:'20',text:''},{id:'21',text:''},{id:'22',text:''}])
+        toggleRestart()
     }
 
     function check(arr){
@@ -53,19 +54,19 @@ function Board({togglePlayer,num,gameOver,isGameOver}){
     return(
         <div className="board">
             <div className="row">
-                <BoardElement item={items[0]} clicked={clicked}/>
-                <BoardElement item={items[1]} clicked={clicked}/>
-                <BoardElement item={items[2]} clicked={clicked}/>
+                <BoardElement item={items[0]} clicked={clicked} isGameOver={isGameOver}/>
+                <BoardElement item={items[1]} clicked={clicked} isGameOver={isGameOver}/>
+                <BoardElement item={items[2]} clicked={clicked} isGameOver={isGameOver}/>
             </div>
             <div className="row">
-                <BoardElement item={items[3]} clicked={clicked}/>
-                <BoardElement item={items[4]} clicked={clicked}/>
-                <BoardElement item={items[5]} clicked={clicked}/>
+                <BoardElement item={items[3]} clicked={clicked} isGameOver={isGameOver}/>
+                <BoardElement item={items[4]} clicked={clicked} isGameOver={isGameOver}/>
+                <BoardElement item={items[5]} clicked={clicked} isGameOver={isGameOver}/>
             </div>
             <div className="row">
-                <BoardElement item={items[6]} clicked={clicked}/>
-                <BoardElement item={items[7]} clicked={clicked}/>
-                <BoardElement item={items[8]} clicked={clicked}/>
+                <BoardElement item={items[6]} clicked={clicked} isGameOver={isGameOver}/>
+                <BoardElement item={items[7]} clicked={clicked} isGameOver={isGameOver}/>
+                <BoardElement item={items[8]} clicked={clicked} isGameOver={isGameOver}/>
             </div>
         </div>
     )
