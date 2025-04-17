@@ -79,3 +79,30 @@ code {
   align-items: center;
   justify-content: space-evenly;
 }
+
+.restart{
+  justify-content: center;
+  margin-top: 30px;
+  width: 90%;
+  border: 1px solid black;
+  font-size: 30px;
+  font-family: sans-serif;
+  border-radius: 7px;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.restart:hover{
+  color: white;
+  background-color: black;
+  transition: ease-in-out;
+  transition-duration: 100ms;
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

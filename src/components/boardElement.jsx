@@ -8,7 +8,7 @@ function BoardElement({item,clicked,isGameOver}){
             color='#ff000d'
             break;
         case 'O':
-            color=' #0505BB'
+            color=' #000080'
             break;
         default:
             color='#96BFC3'

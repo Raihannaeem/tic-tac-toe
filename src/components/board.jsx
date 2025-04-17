@@ -1,13 +1,8 @@
 import { useState } from "react"
 import BoardElement from "./boardElement"
 
-function Board({togglePlayer,num,gameOver,isGameOver,restart,toggleRestart}){
+function Board({togglePlayer,num,setIsGameOver,isGameOver,setDraw}){
     const [items,setItems]=useState([{id:'00',text:''},{id:'01',text:''},{id:'02',text:''},{id:'10',text:''},{id:'11',text:''},{id:'12',text:''},{id:'20',text:''},{id:'21',text:''},{id:'22',text:''}])
-
-    if(restart&&isGameOver){
-        setItems([{id:'00',text:''},{id:'01',text:''},{id:'02',text:''},{id:'10',text:''},{id:'11',text:''},{id:'12',text:''},{id:'20',text:''},{id:'21',text:''},{id:'22',text:''}])
-        toggleRestart()
-    }
 
     function check(arr){
         console.log(`${arr[0].text}  ${arr[1].text}  ${arr[2].text}`)
@@ -29,7 +24,11 @@ function Board({togglePlayer,num,gameOver,isGameOver,restart,toggleRestart}){
             return 1;
         if(arr[2].text==arr[4].text && arr[4].text==arr[6].text && arr[2].text!='')
             return 1;
-        return 0;
+        for(let i in arr)
+            if(arr[i].text=='')
+                return 0;
+        setDraw(true)
+        return 1;      
     }
 
     function clicked(item){
@@ -47,7 +46,7 @@ function Board({togglePlayer,num,gameOver,isGameOver,restart,toggleRestart}){
             if(!ended)
                 togglePlayer()
             else
-                gameOver()
+                setIsGameOver(true)
         }
     }
 
