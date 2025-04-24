@@ -5,8 +5,7 @@
 
 body {
   background-color: var(--bg-color);
-  padding: 10px;
-  padding-top: 70px;
+  padding: 0px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -104,5 +103,59 @@ code {
 .main{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+}
+
+.main>div{
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  
+}
+
+@media(min-width:500px){
+  .board{
+    width: 60%;
+  }
+
+  .nameDisplay{
+    width: 60%;
+  }
+
+  .restart{
+    width: 60%;
+  }
+
+  .boardElementM, .boardElementU{
+    width: 15vw;
+    height: 15vw;
+  }
+}
+
+@media(min-width:900px){
+  .board{
+    width: 30%;
+    padding: 20px 10px;
+  }
+
+  .nameDisplay{
+    margin-top: -1vw;
+    width: 30%;
+  }
+
+  .restart{
+    width: 30%;
+  }
+
+  .boardElementM, .boardElementU{
+    width: 7vw;
+    height: 7vw;
+    margin: 1vw;
+  }
+
+  .boardElementM p{
+    font-size: 2.7rem;
+  }
 }

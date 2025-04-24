@@ -1,8 +1,19 @@
 import { useState } from "react"
 import BoardElement from "./boardElement"
 
-function Board({togglePlayer,num,setIsGameOver,isGameOver,setDraw}){
+function Board({isRestart, setIsRestart, togglePlayer,num,setIsGameOver,isGameOver,setDraw}){
     const [items,setItems]=useState([{id:'00',text:''},{id:'01',text:''},{id:'02',text:''},{id:'10',text:''},{id:'11',text:''},{id:'12',text:''},{id:'20',text:''},{id:'21',text:''},{id:'22',text:''}])
+    
+    function clearboard(){
+        setItems([{id:'00',text:''},{id:'01',text:''},{id:'02',text:''},{id:'10',text:''},{id:'11',text:''},{id:'12',text:''},{id:'20',text:''},{id:'21',text:''},{id:'22',text:''}])
+    }
+
+    if(isRestart){
+        setIsRestart(false)
+        setIsGameOver(false)
+        clearboard()
+        setDraw(false)        
+    }
 
     function check(arr){
         console.log(`${arr[0].text}  ${arr[1].text}  ${arr[2].text}`)

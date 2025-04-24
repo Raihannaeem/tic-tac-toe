@@ -6,6 +6,7 @@ function App() {
   const [num,setNum]=useState(1)
   const [isGameOver,setIsGameOver]=useState(false)
   const [draw,setDraw]=useState(false)
+  const [isRestart,setIsRestart]=useState(false)
 
   function togglePlayer(){
     setNum((prevState)=>{
@@ -15,9 +16,11 @@ function App() {
 
   return (
     <div className="main">
-      <NameDisplay num={num} isGameOver={isGameOver} draw={draw}/>
-      <Board togglePlayer={togglePlayer} setDraw={setDraw} num={num} isGameOver={isGameOver} setIsGameOver={setIsGameOver}/>
-      {isGameOver&&(<a href="/" className="restart">Restart</a>)}
+      <div>
+        <NameDisplay num={num} isGameOver={isGameOver} draw={draw}/>
+        <Board isRestart={isRestart} setIsRestart={setIsRestart} togglePlayer={togglePlayer} setDraw={setDraw} num={num} isGameOver={isGameOver} setIsGameOver={setIsGameOver}/>
+        <a className="restart" href="/tic-tac-toe" style={{opacity: isGameOver? '100%':'0%'}}>Restart</a>
+      </div>
     </div>
   );
 }
